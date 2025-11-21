@@ -1,0 +1,7 @@
+# dbt_sigma_poc/.dockerignore
+.git
+*.log
+*~ 
+.DS_Store
+node_modules
+.env

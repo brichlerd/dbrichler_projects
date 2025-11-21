@@ -1,0 +1,25 @@
+# dbt_sigma_poc/docker-compose.yml
+version: "3.9"
+
+services:
+  postgres:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: dbt_sigma_poc_pg
+    environment:
+      # Superuser for bootstrap
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: dbt_sigma_poc
+      # App user credentials (used by the init script)
+      APP_USER: sigmacomputing_poc
+      APP_PASSWORD: leaflink123
+      TARGET_SCHEMA: hospital_beds
+    ports:
+      - "5432:5432"   # connect from host via localhost:5432
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d dbt_sigma_poc"]
+      interval: 5s
+      timeout: 5s
+      retries: 10

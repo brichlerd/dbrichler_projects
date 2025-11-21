@@ -1,0 +1,23 @@
+name: dbt_sigma_poc
+version: "0.1.0"
+config-version: 2
+
+# Must match the profile name you created in profiles.yml
+profile: dbt_sigma_poc
+
+# dbt 1.9 compatible
+require-dbt-version: ">=1.9.0,<2.0.0"
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["dbt_seeds"]      # keep separate from your Docker /seeds used to bootstrap Postgres
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  +materialized: table
+  dbt_sigma_poc:
