@@ -4,9 +4,10 @@ import sys
 # print systempath
 
 
-# from weather_data.ingestion.api import WeatherRequest
+from weather_data.ingestion.api.request import WeatherRequest
 
 data = WeatherRequest().get_current_weather(query="Ohio")
+print(data)
 
 # ---------- FLATTEN INTO A SINGLE DICTIONARY ----------
 

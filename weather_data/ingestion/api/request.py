@@ -23,7 +23,3 @@ class WeatherRequest:
         response = requests.get(url)
         # return url
         return response.json()
-
-# print(WeatherRequest().get_current_weather(query="Ohio"))
-# response = WeatherRequest().get_current_weather(query="Ohio")
-
