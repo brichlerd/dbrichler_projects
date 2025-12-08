@@ -19,10 +19,6 @@ class WeatherRequest:
         self.unit_group = "unitGroup=us"
         self.content_type="contentType=json"
 
-    # https: // weather.visualcrossing.com / VisualCrossingWebServices / rest / services / timeline
-    # / 43205?unitGroup = us & key = (QWF4ZLNFTSVHNHMV9WBS7W34F
-    # & contentType) = json
-
     def get_historical_weather(self, zip_code: str):
 
         try:
