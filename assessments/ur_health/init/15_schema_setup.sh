@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DB_NAME="${POSTGRES_DB:-dbt_sigma_poc}"
+DB_NAME="${POSTGRES_DB:-healthcare_claims_db}"
 DB_SUPERUSER="${POSTGRES_USER:-postgres}"
-APP_USER="${APP_USER:-sigmacomputing_poc}"
-APP_PASSWORD="${APP_PASSWORD:-leaflink123}"
-TARGET_SCHEMA="${TARGET_SCHEMA:-hospital_beds}"
+APP_USER="${APP_USER:-ursa_user}"
+APP_PASSWORD="${APP_PASSWORD:-user123}"
+TARGET_SCHEMA="${TARGET_SCHEMA:-healthcare_claims}"
 
 # Create the app role if it doesn't exist
 psql -v ON_ERROR_STOP=1 -U "$DB_SUPERUSER" -d postgres <<SQL

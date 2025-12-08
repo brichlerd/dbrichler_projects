@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
-# dbt_sigma_poc/init/20_seed_from_csv.sh
 # Auto-creates tables (all TEXT columns) from CSV headers and bulk loads data.
 # Also creates/grants the app user.
 
 set -euo pipefail
 
-DB_NAME="${POSTGRES_DB:-dbt_sigma_poc}"
+DB_NAME="${POSTGRES_DB:-healthcare_claims_db}"
 DB_SUPERUSER="${POSTGRES_USER:-postgres}"
-APP_USER="${APP_USER:-sigmacomputing_poc}"
-APP_PASSWORD="${APP_PASSWORD:-leaflink123}"
+APP_USER="${APP_USER:-ursa_user}"
+APP_PASSWORD="${APP_PASSWORD:-user123}"
 SEED_DIR="/docker-entrypoint-initdb.d/seeds"
 
 psql_super() {
