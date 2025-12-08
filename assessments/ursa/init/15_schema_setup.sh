@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DB_NAME="${POSTGRES_DB:-weather_data}"
+DB_NAME="${POSTGRES_DB:-dbt_sigma_poc}"
 DB_SUPERUSER="${POSTGRES_USER:-postgres}"
-APP_USER="${APP_USER:-weather_user}"
-APP_PASSWORD="${APP_PASSWORD:-weather123}"
-TARGET_SCHEMA="${TARGET_SCHEMA:-weather_reporting}"
+APP_USER="${APP_USER:-sigmacomputing_poc}"
+APP_PASSWORD="${APP_PASSWORD:-leaflink123}"
+TARGET_SCHEMA="${TARGET_SCHEMA:-hospital_beds}"
 
 # Create the app role if it doesn't exist
 psql -v ON_ERROR_STOP=1 -U "$DB_SUPERUSER" -d postgres <<SQL

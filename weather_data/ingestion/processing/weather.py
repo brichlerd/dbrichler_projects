@@ -35,5 +35,19 @@ def pull_weather_data(zip_code: str) -> None:
     # if column name contains Epoch convert to datetime
     epoch_cols = df_current.columns[df_current.columns.str.contains('Epoch')]
     df_forecast[epoch_cols] = df_forecast[epoch_cols].apply(pd.to_datetime, unit='s')
+    # return both dataframes as a list
+    return [df_current, df_forecast]
 
-pull_weather_data("43205")
+    def process_weather_data(df: pd.DataFrame) -> None:
+        # keep only columns in hist_columns list
+        hist_columns = [
+            "location","timezone","timezone_offset","current_description","datetime","datetimeEpoch","tempmax","tempmin"
+            ,"temp","feelslikemax","feelslikemin","feelslike","dew","humidity","precip","precipprob","precipcover",
+            "preciptype","snow","snowdepth","windgust","windspeed","winddir","pressure","cloudcover","visibility",
+            "solarradiation","solarenergy","uvindex","severerisk","sunrise","sunriseEpoch","sunset","sunsetEpoch",
+            "moonphase"
+        ]
+        df = df[hist_columns]
+        return None
+
+results = pull_weather_data("43205")

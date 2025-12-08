@@ -2,7 +2,7 @@
 FROM postgres:16.6
 
 # Default DB name (compose will also set this)
-ENV POSTGRES_DB=weather_data
+ENV POSTGRES_DB=healthcare_claims_db
 
 # Copy init scripts and seed files into the standard init directory.
 # Everything in /docker-entrypoint-initdb.d runs automatically on first container start.

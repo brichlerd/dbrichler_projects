@@ -6,20 +6,20 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: weather_data_pg
+    container_name: healthcare_postgres
     environment:
       # Superuser for bootstrap
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: weather_data
+      POSTGRES_DB: healthcare_claims_db
       # App user credentials (used by the init script)
-      APP_USER: weather_user
-      APP_PASSWORD: weather123
-      TARGET_SCHEMA: weather_reporting
+      APP_USER: ursa_user
+      APP_PASSWORD: user123
+      TARGET_SCHEMA: healthcare_claims
     ports:
       - "5432:5432"   # connect from host via localhost:5432
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d weather_data"]
+      test: ["CMD-SHELL", "pg_isready -U postgres -d dbt_sigma_poc"]
       interval: 5s
       timeout: 5s
       retries: 10
