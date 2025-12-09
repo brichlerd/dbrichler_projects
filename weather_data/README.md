@@ -1,7 +1,6 @@
 ## 1) Clone repo and open terminal at dbt project directory
-[Product Analytics Repo](https://github.com/LeafLink/product-analytics)
 
-cd dbt_sigma_poc
+cd weather_data
 
 ## 2) Build the image
 docker compose build
